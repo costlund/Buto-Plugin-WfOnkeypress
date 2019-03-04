@@ -1,6 +1,6 @@
 function plugin_wf_onkeypress(){
   this.set = function (id, settings, my_function){
-    document.getElementById(id).addEventListener("keypress", function(event){
+    $(document.getElementById(id)).bind('keydown', 'ctrl+s', function (event) {
       var def = {ctrlKey: false, which: 119};
       if(settings.ctrlKey){
         def.ctrlKey = settings.ctrlKey;
@@ -12,7 +12,6 @@ function plugin_wf_onkeypress(){
         my_function();
         event.preventDefault();
       }
-      return false;
     });
   }
   this.log = function(id){
